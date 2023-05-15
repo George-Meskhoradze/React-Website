@@ -7,7 +7,6 @@ import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import 'swiper/swiper-bundle.css';
 
-SwiperCore.use([Autoplay]);
 
 const SliderSecond = () => {
   return (
