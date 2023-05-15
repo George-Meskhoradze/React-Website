@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 
@@ -26,8 +26,10 @@ const ulData: menu[] = [
   }
 ]
 
-function App() {
 
+function App() {
+  
+  const [active, setActive] = useState(false)
 
   return (
     <>
@@ -36,7 +38,41 @@ function App() {
       <Bg>
         <Header>
           <Logo />
-          <Ul>        
+
+          <Burger 
+          onClick={()=> {
+            setActive(!active)
+          }}>
+            <Stroke />
+            <Stroke />
+            <Stroke />
+          </Burger>
+
+          {active 
+
+          ? 
+          
+          <El>   
+
+          {ulData.map(item => (
+          <Li key={item.number} >
+            {item.name}
+          </Li>
+          ))}
+
+          <LiBtn>
+            GET TICKETS
+          </LiBtn>
+
+          </El>
+
+          :
+
+          null
+          }
+
+          <Ul>   
+
             {ulData.map(item => (
             <Li key={item.number} >
               {item.name}
@@ -100,6 +136,36 @@ const Bg = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+`
+
+const Burger = styled.div`
+
+  @media (max-width:1220px) {
+  width: 25px;
+  height: 18px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+  }
+
+  @media (min-width:1220px) {
+    display: none;
+  }
+
+  @media (max-width:730px) {
+    margin-left: 0px;
+  }
+`
+
+const Stroke = styled.div`
+  width: 25px;
+  height: 2px;
+  background: #FFFFFF;
 `
 
 
@@ -115,6 +181,23 @@ const Header = styled.div`
   background: transparent;
   position: relative;
   z-index: 1;
+
+  @media (max-width:1220px) {
+    justify-content: space-around;
+  }
+
+  @media (max-width:730px) {
+    justify-content: space-evenly;
+    height: 80px;
+    gap: 150px;
+  }
+
+  
+  @media (max-width:400px) {
+    justify-content: space-evenly;
+    height: 80px;
+    gap: 100px;
+  }
 `
 const Logo = styled.div`
 
@@ -124,6 +207,8 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
+  z-index: 1;
   cursor: pointer;
 `
 
@@ -133,6 +218,30 @@ const Ul = styled.ul`
   flex-direction: row;
   align-items: center;
   gap: 40px;
+
+  @media (max-width:1220px) {
+    display: none;
+  }
+`
+
+const El = styled.ul`
+
+  display: flex;
+  width: 100%;
+  background: black;
+  height: 600px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px 0px 40px 0px;
+  gap: 30px;
+  position: absolute;
+  z-index: 0;
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width:400px) {
+    height: 750px;
+  }
 `
 
 const Li = styled.li`
@@ -176,6 +285,13 @@ const LiBtn = styled.li`
     background: #650094;
     color: white;
   }
+
+  @media (max-width:1220px) {
+    width: 130px;
+    height: 40px;
+    font-size: 12px;
+    margin-left: 0px;
+  }
 `
 
 const HeroContainer = styled.div`
@@ -189,6 +305,17 @@ const HeroContainer = styled.div`
   margin-top: 100px;
   width: 970px;
   height: 388px;
+
+  @media (max-width:1430px) {
+    width: 600px;
+    height: 450px;
+  }
+
+  @media (max-width:730px) {
+    width: 320px;
+    height: 300px;
+    gap: 10px;
+  }
 `
 
 const Htitle = styled.div`
@@ -206,19 +333,42 @@ const Htitle = styled.div`
   & span {
     color: #FFA3A3;
   }
+
+  @media (max-width:1430px) {
+    width: 600px;
+    font-size: 50px;
+  }
+
+  @media (max-width:730px) {
+    width: 320px;
+    font-size: 26px;
+    line-height: 40px;
+  }
 `
 
 const Ptext = styled.div`
 
   width: 970px;
   height: 76px;
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 38px;
   text-align: center;
   color: #FFFFFF;
+
+  @media (max-width:1430px) {
+    width: 600px;
+    height: 130px;
+    font-size: 18px;
+  }
+
+  @media (max-width:730px) {
+    width: 320px;
+    font-size: 16px;
+    line-height: 26px;
+  }
 `
 
 const Bcontainer = styled.div`
@@ -228,6 +378,11 @@ const Bcontainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 40px;
+
+  @media (max-width:730px) {
+    width: 320px;
+    gap: 20px;
+  }
 `
 
 const Rbtn = styled.div`
@@ -255,6 +410,12 @@ const Rbtn = styled.div`
   &:hover {
     background: #ce3030;
   }
+
+  @media (max-width:730px) {
+    width: 130px;
+    height: 35px;
+    font-size: 12px;
+  }
 `
 
 
@@ -266,6 +427,12 @@ const Pbutton = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 24px;
+
+  @media (max-width:730px) {
+    width: 160px;
+    height: 35px;
+    gap: 16px;
+  }
 `
 
 const Play = styled.div`
@@ -276,6 +443,11 @@ const Play = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width:730px) {
+    width: 30px;
+    height: 30px;
+  }
 `
 
 const Wvideo = styled.div`
@@ -289,6 +461,13 @@ const Wvideo = styled.div`
   display: flex;
   align-items: center;
   color: #FFFFFF;
+
+  @media (max-width:730px) {
+    width: 120px;
+    height: 22px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 `
 
 const Time = styled.div`
@@ -301,6 +480,19 @@ const Time = styled.div`
   align-items: center;
   gap: 100px;
   margin-top: 122px;
+
+  @media (max-width:1430px) {
+    gap: 40px;
+  }
+
+  @media (max-width:1220px) {
+    width: 300px;
+    gap: 20px;
+  }
+
+  @media (max-width:450px) {
+    width: 280px;
+  }
 `
 
 const Day = styled.div`
@@ -312,6 +504,20 @@ const Day = styled.div`
   -webkit-text-stroke: 5px white;
 	-webkit-text-fill-color: transparent;
   font-weight: 900;
+
+  @media (max-width:1430px) {
+    font-size: 4rem;
+  }
+
+  @media (max-width:1220px) {
+    -webkit-text-stroke: 2.5px white;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width:450px) {
+    -webkit-text-stroke: 2px white;
+    font-size: 2rem;
+  }
 `
 
 const Hour = styled.div`
@@ -323,6 +529,20 @@ const Hour = styled.div`
   -webkit-text-stroke: 5px white;
 	-webkit-text-fill-color: transparent;
   font-weight: 900;
+
+  @media (max-width:1430px) {
+    font-size: 4rem;
+  }
+
+  @media (max-width:1220px) {
+    -webkit-text-stroke: 2.5px white;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width:450px) {
+    -webkit-text-stroke: 2px white;
+    font-size: 2rem;
+  }
 `
 
 const Minute = styled.div`
@@ -334,6 +554,20 @@ const Minute = styled.div`
   -webkit-text-stroke: 5px white;
 	-webkit-text-fill-color: transparent;
   font-weight: 900;
+
+  @media (max-width:1430px) {
+    font-size: 4rem;
+  }
+
+  @media (max-width:1220px) {
+    -webkit-text-stroke: 2.5px white;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width:450px) {
+    -webkit-text-stroke: 2px white;
+    font-size: 2rem;
+  }
 `
 
 const Sec = styled.div`
@@ -345,6 +579,20 @@ const Sec = styled.div`
   -webkit-text-stroke: 5px white;
 	-webkit-text-fill-color: transparent;
   font-weight: 900;
+
+  @media (max-width:1430px) {
+    font-size: 4rem;
+  }
+
+  @media (max-width:1220px) {
+    -webkit-text-stroke: 2.5px white;
+    font-size: 2.5rem;
+  }
+
+  @media (max-width:450px) {
+    -webkit-text-stroke: 2px white;
+    font-size: 2rem;
+  }
 `
 
 
@@ -355,7 +603,6 @@ const Sec = styled.div`
 const GlobalStyles = createGlobalStyle`
 
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
   :root {

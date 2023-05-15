@@ -3,7 +3,6 @@ import styled from "styled-components"
 const SectionTwo = () => {
   return (
     <BScontainer>
-      <Stear />
       <Party>
         <Partyback src='/img/partyback.png' alt="#" />
         <Partyfront src='/img/partyfront.png' alt="#"  />
@@ -33,26 +32,31 @@ const BScontainer = styled.div`
   justify-content: center;
   margin-top: 240px;
   position: relative;
-`
 
-const Stear = styled.div`
-  width: 181px;
-  height: 167px;
-  background: url('/img/stears.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  left: 97px;
-  bottom: -38px;
+  @media (max-width:1290px) {
+    height: 1035px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 `
-
 
 const Party = styled.div`
   width: 530px;
   height: 550px;
   margin-left: 101px;
   position: relative;
+
+  @media (max-width:1290px) {
+    margin: 0;
+  }
+
+  @media (max-width:630px) {
+    margin: 0;
+    width: 340px;
+    height: 340px;
+    background-size: cover;
+  }
 `
 
 const Partyback = styled.img`
@@ -62,6 +66,13 @@ const Partyback = styled.img`
   left: 0%;
   position: absolute;
   object-fit: cover;
+
+  @media (max-width:630px) {
+    width: 300px;
+    height: 280px;
+    border-radius: 10px;
+    background-size: cover;
+  }
 `
 
 const Partyfront = styled.img`
@@ -71,6 +82,13 @@ const Partyfront = styled.img`
   right: 0%;
   position: absolute;
   object-fit: cover;
+
+  @media (max-width:630px) {
+    width: 300px;
+    height: 280px;
+    border-radius: 10px;
+    background-size: cover;
+  }
 `
 
 const Text = styled.div`
@@ -80,6 +98,17 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media (max-width:1290px) {
+    align-items: center;
+    margin: 40px 0px 0px 0px;
+  }
+
+  @media (max-width:630px) {
+    width: 340px;
+    height: 320px;
+    margin: 40px 0px 0px 0px;
+  }
 `
 
 const Title = styled.div`
@@ -88,16 +117,32 @@ const Title = styled.div`
   font-size: 34px;
   line-height: 130%;
   color: #222222;
+
+  @media (max-width:1290px) {
+    text-align: center;
+  }
+
+  @media (max-width:630px) {
+    font-size: 28px;
+  }
 `
 
 const Description = styled.div`
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #222222;
   opacity: 0.7;
   margin-top: 30px;
+
+  @media (max-width:1290px) {
+    text-align: center;
+  }
+
+  @media (max-width:630px) {
+    font-size: 14px;
+  }
 `
 
 const Bbutton = styled.div`
@@ -122,5 +167,16 @@ const Bbutton = styled.div`
 
   &:hover {
     background: #260eae;
+  }
+
+  @media (max-width:1290px) {
+    margin-top: 40px;
+  }
+
+  @media (max-width:630px) {
+    margin-top: 20px;
+    font-size: 12px;
+    width: 150px;
+    height: 40px;
   }
 `

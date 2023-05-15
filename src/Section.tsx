@@ -1,52 +1,5 @@
 import styled from 'styled-components'
-
-interface BoxComponents {
-  photo: string;
-  title: string;
-  description: string;
-  color: string;
-}
-
-
-
-const Boxes: BoxComponents[] = [
-
-  {
-    photo: '/img/dj.png',
-    title: 'Pop',
-    description: 'Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae',
-    color: '#db851d1d'
-  },
-
-  {
-    photo: '/img/kettle.png',
-    title: 'Folk',
-    description: 'Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae',
-    color: '#fc525225'
-  },
-
-  {
-    photo: '/img/Saxophone.png',
-    title: 'Instrumental',
-    description: 'Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae',
-    color: '#2809d7c7'
-  },
-
-  {
-    photo: '/img/Guitar.png',
-    title: 'Rock',
-    description: 'Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae',
-    color: ' #c0009645'
-  },
-
-  {
-    photo: '/img/salamuri.png',
-    title: 'Jazz',
-    description: 'Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae',
-    color: '#84c4ff34'
-  }
-
-]
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 
@@ -54,15 +7,76 @@ const Section = () => {
   return (
         <ChildContainer>
           <Stitle><span>Explore</span> By Category</Stitle>
-          <Sboxes>
-            {Boxes.map(item => (
-              <Box style={{backgroundColor: item.color}} >
-                <Img src={item.photo} alt='photo' />
-                <Title style={item.title === 'Instrumental' ? {color: 'white'} : {}}>{item.title}</Title>
-                <Desc style={item.title === 'Instrumental' ? {color: 'white'} : {}}>{item.description}</Desc>
-              </Box>
-            ))}
-          </Sboxes>
+
+          <SwiperStyled
+            spaceBetween={0}
+            slidesPerView={1}
+
+            breakpoints={{
+              1450: {
+                slidesPerView: 3,
+                spaceBetween: 50
+              },
+
+              960: {
+                slidesPerView: 2,
+                spaceBetween: 40
+              }
+            }}
+          >
+            
+            <SwiperSliderStyled>
+
+                <Box style={{background: '#db851d1d'}} >
+                  <Img src='/img/dj.png' alt='#' />
+                  <Title>Pop</Title>
+                  <Desc>Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae</Desc>
+                </Box>
+
+            </SwiperSliderStyled>
+
+            <SwiperSliderStyled>
+
+                <Box style={{background: '#ff76765e'}} >
+                  <Img src='/img/kettle.png' alt='#' />
+                  <Title>Folk</Title>
+                  <Desc>Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae</Desc>
+                </Box>
+
+            </SwiperSliderStyled>
+
+            <SwiperSliderStyled>
+
+                <Box style={{background: '#2809d7c7'}} >
+                  <Img src='/img/Saxophone.png' alt='#' />
+                  <Title>Instrumens</Title>
+                  <Desc>Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae</Desc>
+                </Box>
+
+            </SwiperSliderStyled>
+
+            <SwiperSliderStyled>
+
+                <Box style={{background: '#c0009645'}} >
+                  <Img src='/img/Guitar.png' alt='#' />
+                  <Title>Rock</Title>
+                  <Desc>Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae</Desc>
+                </Box>
+
+            </SwiperSliderStyled>
+
+            <SwiperSliderStyled>
+
+                <Box style={{background: '#84c4ff34'}} >
+                  <Img src='/img/salamuri.png' alt='#' />
+                  <Title>Jazz</Title>
+                  <Desc>Duis nec sodales nibh. Proin lectus tortor, rutrum vel vulputate vitae</Desc>
+                </Box>
+
+            </SwiperSliderStyled>
+
+          </SwiperStyled>
+
         </ChildContainer>
   )
 }
@@ -79,6 +93,7 @@ const ChildContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 195px;
+  overflow: hidden;
   gap: 60px;
 `
 
@@ -90,16 +105,35 @@ const Stitle = styled.div`
   font-weight: 700;
   font-size: 34px;
   line-height: 130%;
+  text-align: center;
   color: #222222;
 
   & span {
     color: #381DDB;
   }
+
+  @media (max-width:620px) {
+    font-size: 22px;
+  }
 `
 
-const Sboxes = styled.div`
+const SwiperStyled = styled(Swiper)`
+
+  width: 70%;
+  height: 380px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+
+  @media (max-width:620px) {
+    width: 100%;
+  }
+`
+
+const SwiperSliderStyled = styled(SwiperSlide)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   gap: 30px;
 `
 
@@ -114,15 +148,18 @@ const Box = styled.div`
   border-radius: 10px;
   cursor: pointer;
   transition: all 300ms ease-in-out;
+  background: #db851d37;
 
-  &:hover {
-    transform: translateY(-20px);
+  @media (max-width:620px) {
+    width: 300px;
+    height: 290;
+    padding: 65px 250px 180px 45px;
   }
 `
 
 const Img = styled.img`
-  width: 40px
-  height 40px
+  width: 40px;
+  height: 40px;
 `
 
 const Title = styled.div`
@@ -140,9 +177,9 @@ const Desc = styled.div`
 
   width: 190px;
   height: 72px;
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   font-weight: 400;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 24px;
   color: #222222;
   opacity: 0.7;

@@ -39,6 +39,13 @@ const StContainer = styled.div`
   align-items: center;
   gap: 30px;
   margin-top: 240px;
+
+  @media (max-width:1270px) {
+
+    flex-direction: column;
+    height: 1150px;
+    gap: 40;
+  }
 `
 
 const Text = styled.div`
@@ -48,6 +55,12 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media (max-width:730px) {
+
+    width: 300px;
+    align-items: center;
+  } 
 `
 
 const Title = styled.div`
@@ -57,17 +70,31 @@ const Title = styled.div`
   font-size: 34px;
   line-height: 130%;
   color: #222222;
+
+  @media (max-width:730px) {
+
+    width: 300px;
+    text-align: center;
+  } 
 `
 
 const Desc = styled.div`
 
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #222222;
   opacity: 0.7;
   margin-top: 30px;
+
+  @media (max-width:730px) {
+
+    width: 300px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 20px;
+  } 
 `
 const Tbutton = styled.div`
 
@@ -93,6 +120,14 @@ const Tbutton = styled.div`
   &:hover {
     background: #260eae;
   }
+
+  @media (max-width:730px) {
+
+    width: 180px;
+    height: 40px;
+    font-size: 14px;
+    margin-top: 40px;
+  } 
 `
 
 const Images = styled.div`
@@ -101,6 +136,17 @@ const Images = styled.div`
   height: 712px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  
+
+  @media (max-width:730px) {
+
+    width: 350px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  } 
 `
 
 const ImgOne = styled.div`
@@ -112,6 +158,14 @@ const ImgOne = styled.div`
   background-position: center;
   background-size: cover;
   margin-top: 51px;
+
+  @media (max-width:730px) {
+
+    width: 250px;
+    height: 270px;
+    border-radius: 10px;
+    margin-top: 0;
+  } 
 `
 
 const ImgTwo = styled.div`
@@ -123,6 +177,14 @@ const ImgTwo = styled.div`
   background-position: center;
   background-size: cover;
   margin-left: 30px;
+
+  @media (max-width:730px) {
+
+    width: 250px;
+    height: 270px;
+    border-radius: 10px;
+    margin-left: 0;
+  } 
 `
 
 const ImgThree = styled.div`
@@ -134,7 +196,15 @@ const ImgThree = styled.div`
   background-position: center;
   background-size: cover;
   border-radius: 24px;
-  `
+
+  @media (max-width:730px) {
+
+  width: 250px;
+  height: 270px;
+  border-radius: 10px;
+  margin-left: 0;
+  } 
+`
 
 const ImgFour = styled.div`
   
@@ -145,4 +215,16 @@ const ImgFour = styled.div`
   background-position: center;
   background-size: cover;
   margin-left: -70px;
+
+  @media (max-width: 1270px) {
+    margin-top: 0px;
+  }
+
+  @media (max-width:730px) {
+
+  width: 250px;
+  height: 270px;
+  border-radius: 10px;
+  margin-left: 0;
+  } 
 `
