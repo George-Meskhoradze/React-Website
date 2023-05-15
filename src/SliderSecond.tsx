@@ -1,6 +1,10 @@
 import styled from "styled-components"
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from 'swiper';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
 import 'swiper/swiper-bundle.css';
 
 SwiperCore.use([Autoplay]);
