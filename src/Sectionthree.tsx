@@ -44,6 +44,7 @@ const StContainer = styled.div`
 
     flex-direction: column;
     height: 1150px;
+    margin-top: 80px;
     gap: 40;
   }
 `
