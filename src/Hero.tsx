@@ -136,7 +136,6 @@ const Bg = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
 `
 
 const Burger = styled.div`
@@ -443,6 +442,7 @@ const Play = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
 
   @media (max-width:730px) {
     width: 30px;
@@ -461,6 +461,7 @@ const Wvideo = styled.div`
   display: flex;
   align-items: center;
   color: #FFFFFF;
+  cursor: pointer;
 
   @media (max-width:730px) {
     width: 120px;
