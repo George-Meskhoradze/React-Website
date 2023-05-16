@@ -617,14 +617,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: initial;
   }
-
+  
   body {
-    /* min-width: 320px;
-    min-height: 100vh; */
     width: 100%;
     height: 100%;
-    overflow-x: clip;
+    overflow-x: hidden;
   }
   `
